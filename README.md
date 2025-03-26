@@ -1,4 +1,3 @@
-```markdown
 # CM-CliniBOT
 
 ![CM-CliniBOT Banner](https://raw.githubusercontent.com/akshatsaxena74/CM-CliniBOT/main/assets/cover.png)
