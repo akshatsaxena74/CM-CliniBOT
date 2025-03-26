@@ -1,101 +1,82 @@
-# CM-CliniBOT
+# CM-CliniBOT: A Code‑Mixed Hindi‑English Clinical Chatbot
 
-CM-CliniBOT is a next-generation clinical chatbot designed to provide quick medical insights and assist with healthcare-related queries. Leveraging state-of-the-art AI algorithms, it offers an intuitive, conversational interface that bridges the gap between patients and trusted clinical information.
+> **Disclaimer:** CM‑CliniBOT is for informational purposes only and is **not** a substitute for professional medical advice.
 
-> **Disclaimer:** CM-CliniBOT is intended for informational purposes only and does not replace professional medical advice.
-
----
-
-## Table of Contents
-
-- [About](#about)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [Contact](#contact)
+CM‑CliniBOT bridges the language gap in medical consultations by understanding and responding to code‑mixed Hindi‑English (Hinglish) queries. Built on a Retrieval‑Augmented Generation (RAG) framework, it retrieves relevant clinical knowledge and generates contextually accurate, empathetic responses.
 
 ---
 
-## About
+## 📖 Table of Contents
 
-CM-CliniBOT is built to enhance access to preliminary clinical information through engaging, natural language conversations. Its user-centric design makes it accessible for both patients and healthcare professionals, providing a simple yet powerful tool for initial medical guidance.
-
----
-
-## Installation
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/akshatsaxena74/CM-CliniBOT.git
-   cd CM-CliniBOT
-   ```
-
-2. **Set Up Your Environment:**
-
-   Follow your preferred method to set up the required environment and dependencies.
-
-3. **Launch the Application:**
-
-   - **Backend:**
-     ```bash
-     python app.py
-     ```
-
-   - **Frontend (if applicable):**
-     ```bash
-     cd client
-     npm install
-     npm start
-     ```
+1. [About](#about)  
+2. [Project Overview](#project-overview)  
+3. [Methodology](#methodology)  
+4. [Evaluation](#evaluation)  
+5. [Installation & Usage](#installation--usage)  
+6. [Future Work](#future-work)  
+7. [Contributors](#contributors)  
+8. [References](#references)  
 
 ---
 
-## Usage
+## 💡 About
 
-After launching the application, open your browser and visit [http://localhost:3000](http://localhost:3000) (or the designated port) to begin your interaction with CM-CliniBOT.
+In multilingual societies, patients often describe symptoms in Hinglish. Traditional NLP systems struggle with code‑mixed input, risking miscommunication. CM‑CliniBOT:
 
-### Example Interaction
-
-```plaintext
-User: I have a headache and a mild fever. What should I do?
-CM-CliniBOT: I'm not a doctor, but these symptoms might indicate a common viral infection. Please consider seeking professional advice if your symptoms worsen.
-```
+- Understands Hinglish queries  
+- Retrieves domain‑specific clinical knowledge  
+- Generates detailed, empathetic responses  
 
 ---
 
-## Configuration
+## 🚀 Project Overview
 
-Application settings can be adjusted in the `config.yaml` or `.env` file. Customize parameters such as API keys, response timeouts, and logging levels to match your environment before deployment.
+CM‑CliniBOT implements a two‑stage RAG pipeline:
 
----
-
-## Contributing
-
-Contributions are welcome! To get started:
-
-1. **Fork** the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-3. **Commit** your changes:
-   ```bash
-   git commit -m 'Add new feature'
-   ```
-4. **Push** the branch:
-   ```bash
-   git push origin feature/your-feature
-   ```
-5. Open a **Pull Request** to merge your changes.
+1. **Dataset Creation:** Annotated clinical dialogues reflecting natural Hinglish interactions.  
+2. **Model Training:**  
+   - Stage 1: Hindi token acquisition using English translations  
+   - Stage 2: Response generation from code‑mixed inputs  
+3. **Document Retrieval:** Hybrid FAISS + BM25 ensemble on 10,000 COVID‑19 abstracts  
+4. **Response Generation:** Translate → Retrieve → Generate  
 
 ---
 
-## Contact
+## 🧪 Methodology
 
-For questions, feedback, or further information, please reach out:
+### Model Training
 
-- **Akshat Saxena** – [pranjal102.ps@gmail.com](mailto:pranjal102.ps@gmail.com)
-- GitHub: [@akshatsaxena74](https://github.com/akshatsaxena74)
-```
+| Stage | Input | Output |
+|-------|-------|--------|
+| 1 | Hinglish query + English translation | Encoded bilingual embeddings |
+| 2 | Hinglish query | Clinically appropriate response |
+
+### Document Retrieval
+
+- **Corpus:** 10k COVID‑19 abstracts  
+- **Techniques:** FAISS (semantic) + BM25 (token) + multi‑query retriever  
+
+### Response Generation Pipeline
+
+1. Translate Hinglish → English  
+2. Retrieve relevant documents  
+3. Generate the final answer  
+
+---
+
+## 📊 Evaluation
+
+| Metric | Result | Notes |
+|--------|--------|-------|
+| BLEU | Moderate | Sensitive to code‑mix nuances |
+| ROUGE | Moderate | Similar limitations |
+| BERTScore | High | Strong semantic alignment |
+| Human Assessment | Preferred over ChatGPT‑4 | More context‑rich & empathetic |
+
+---
+
+## ⚙️ Installation & Usage
+
+```bash
+git clone https://github.com/akshatsaxena74/CM-CliniBOT.git
+cd CM-CliniBOT
