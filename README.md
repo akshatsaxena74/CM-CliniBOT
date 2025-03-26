@@ -1,7 +1,5 @@
 # CM-CliniBOT
 
-![CM-CliniBOT Banner](https://raw.githubusercontent.com/akshatsaxena74/CM-CliniBOT/main/assets/cover.png)
-
 CM-CliniBOT is a next-generation clinical chatbot designed to provide quick medical insights and assist with healthcare-related queries. Leveraging state-of-the-art AI algorithms, it offers an intuitive, conversational interface that bridges the gap between patients and trusted clinical information.
 
 > **Disclaimer:** CM-CliniBOT is intended for informational purposes only and does not replace professional medical advice.
