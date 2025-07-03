@@ -12,10 +12,7 @@ CM‑CliniBOT bridges the language gap in medical consultations by understanding
 2. [Project Overview](#project-overview)  
 3. [Methodology](#methodology)  
 4. [Evaluation](#evaluation)  
-5. [Installation & Usage](#installation--usage)  
-6. [Future Work](#future-work)  
-7. [Contributors](#contributors)  
-8. [References](#references)  
+5. [Installation](#installation)  
 
 ---
 
