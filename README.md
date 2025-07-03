@@ -76,4 +76,3 @@ CM‑CliniBOT implements a two‑stage RAG pipeline:
 
 ```bash
 git clone https://github.com/akshatsaxena74/CM-CliniBOT.git
-cd CM-CliniBOT
